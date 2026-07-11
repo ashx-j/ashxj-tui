@@ -55,8 +55,3 @@ included `tsconfig.json` uses `moduleResolution: "Bundler"` + `skipLibCheck:
 true`. Do not run `tsc --noEmit index.ts` (file argument); use `tsc --noEmit`
 (the tsconfig form).
 
-## Credits
-
-The extension replaces
-[`pi-zentui`](https://github.com/lmilojevicc/pi-zentui), whose statusline
-segments and editor-frame approach were the reference for the pi extension API.
