@@ -1,12 +1,11 @@
 /**
- * ashxj-tui — a slim, Grok-Build-style chatbox for pi.
+ * ashxj-tui — a custom slim chatbox for pi.
  *
  * Replaces pi-zentui's prompt box + statusline with:
  *   - A rounded prompt box that auto-expands as the typed message wraps to
  *     multiple rows (the sides extend; height grows with content).
  *   - A right-aligned chip on the box's BOTTOM border:
  *       model · provider · effort     (e.g. `glm-5.2 · Ollama Cloud · xhigh`)
- *     This is the spot Grok Build uses for `unknown · always-approve`.
  *   - A slim stats line (LSP · MCP · throughput/tokens · context% · ↑↓ · cost)
  *     BELOW the box, not wrapped around the input.
  *   - No session-mode indicator anywhere (pi has no such concept).
@@ -392,10 +391,10 @@ function buildChip(ctx: ExtensionContextLike, pi: ExtensionAPI): string {
 }
 
 // ---------------------------------------------------------------------------
-// The prompt box — `GrokEditor extends CustomEditor`
+// The prompt box — `ChatboxEditor extends CustomEditor`
 // ---------------------------------------------------------------------------
 
-class GrokEditor extends CustomEditor {
+class ChatboxEditor extends CustomEditor {
 	private readonly ctx: ExtensionContextLike;
 	private readonly pi: ExtensionAPI;
 
@@ -491,7 +490,7 @@ class GrokEditor extends CustomEditor {
 		}
 		const dashTotal = Math.max(0, width - overhead - chipW);
 		// Right-align the chip: a single trailing dash before the corner, the
-		// rest lead (matches Grok Build's `╰─…─── unknown · always-approve ─╯`).
+		// rest lead (right-aligns the chip near the corner).
 		const rightDashes = Math.min(dashTotal, 1);
 		const leftDashes = dashTotal - rightDashes;
 
@@ -567,7 +566,7 @@ function installEditor(
 				/* ignore */
 			}
 		});
-		return new GrokEditor(tui, _theme, _keybindings, ctx, pi);
+		return new ChatboxEditor(tui, _theme, _keybindings, ctx, pi);
 	};
 	ctx.ui.setEditorComponent(factory);
 }

@@ -1,6 +1,6 @@
 # ashxj-tui
 
-A slim, **Grok-Build-style** chatbox extension for [pi](https://pi.dev). It
+A custom slim chatbox extension for [pi](https://pi.dev). It
 replaces the bulkier prompt box + statusline provided by
 [`pi-zentui`](https://github.com/lmilojevicc/pi-zentui) with a low-profile,
 rounded prompt box that auto-expands, a model-settings chip on the box's
@@ -10,11 +10,9 @@ border, and a slim stats line below.
 
 - **Rounded prompt box** — a single low-profile element with rounded corners
   (`╭─╮` / `╰─╯`). As the typed message wraps to multiple rows the box grows
-  taller (the sides extend) instead of staying one line and breaking. This is
-  the auto-expand behavior Grok Build gets from its `xai-ratatui-textarea`.
+  taller (the sides extend) instead of staying one line and breaking.
 - **Border chip** on the box's **bottom** border, right-aligned:
-  `model · provider · effort` — e.g. `glm-5.2 · Ollama Cloud · xhigh`. This is
-  the exact spot Grok Build uses for `unknown · always-approve`.
+  `model · provider · effort` — e.g. `glm-5.2 · Ollama Cloud · xhigh`.
 - **Slim stats line** directly **below** the box, one line, not wrapped around
   the input: `LSP · MCP · ✓ t/s · N tokens · context% · ↑in ↓out · $cost`.
 - **No session-mode indicator** anywhere — pi has no such concept.
@@ -78,7 +76,6 @@ true`. Do not run `tsc --noEmit index.ts` (file argument); use `tsc --noEmit`
 
 ## Credits
 
-The visual contract (rounded box, right border chip, auto-expanding input) is
-reverse-engineered from Grok Build's TUI. The extension replaces
+The extension replaces
 [`pi-zentui`](https://github.com/lmilojevicc/pi-zentui), whose statusline
 segments and editor-frame approach were the reference for the pi extension API.
