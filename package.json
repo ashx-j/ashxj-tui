@@ -1,0 +1,42 @@
+{
+  "name": "ashxj-tui",
+  "version": "0.1.0",
+  "description": "A slim, Grok-Build-style chatbox for pi: a rounded auto-expanding prompt box with a model·provider·effort chip on the bottom border and a slim stats line below. Replaces pi-zentui's prompt box + statusline.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "author": { "name": "ashx-j" },
+  "keywords": [
+    "pi",
+    "pi-package",
+    "pi-extension",
+    "tui",
+    "chatbox",
+    "grok-build"
+  ],
+  "main": "index.ts",
+  "files": ["index.ts", "README.md", "LICENSE"],
+  "pi": {
+    "extensions": ["./index.ts"]
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "@earendil-works/pi-ai": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashx-j/ashxj-tui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashx-j/ashxj-tui/issues"
+  },
+  "homepage": "https://github.com/ashx-j/ashxj-tui#readme"
+}
