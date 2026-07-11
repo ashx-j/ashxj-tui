@@ -16,24 +16,6 @@ border, and a slim stats line below.
 - **Slim stats line** directly **below** the box, one line, not wrapped around
   the input: `LSP · MCP · ✓ t/s · N tokens · context% · ↑in ↓out · $cost`.
 
-### Where each segment comes from
-
-| Segment | Source |
-|---|---|
-| `model` (chip) | `ctx.model.id` |
-| `provider` (chip) | derived from `ctx.model.provider` (`ollama-cloud` → `Ollama Cloud`) |
-| `effort` (chip) | `pi.getThinkingLevel()` (`off`/`minimal`/`low`/`medium`/`high`/`xhigh`) |
-| `LSP` | extension status `"lsp"` (published by `pi-lsp-extension`) |
-| `MCP` | extension status `"mcp"` (published by `pi-mcp-adapter`) |
-| `✓ t/s · N tokens` | extension status `"tps"` (published by `pi-tps-was-taken`) |
-| `context%` | `ctx.getContextUsage()` + `ctx.model.contextWindow` |
-| `↑in ↓out` | `ctx.sessionManager.getEntries()` assistant `usage.input/output` |
-| `$cost` | assistant `usage.cost.total` |
-
-The LSP/MCP/throughput values are not on `ctx` directly; they are read from
-`footerData.getExtensionStatuses()` (the same mechanism zentui uses) and
-rendered as-is, keeping their original styling.
-
 ## Install / disable zentui
 
 This extension **replaces** the prompt box (`ctx.ui.setEditorComponent`) and the
