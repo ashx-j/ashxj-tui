@@ -15,7 +15,6 @@ border, and a slim stats line below.
   `model · provider · effort` — e.g. `glm-5.2 · Ollama Cloud · xhigh`.
 - **Slim stats line** directly **below** the box, one line, not wrapped around
   the input: `LSP · MCP · ✓ t/s · N tokens · context% · ↑in ↓out · $cost`.
-- **No session-mode indicator** anywhere — pi has no such concept.
 
 ### Where each segment comes from
 
