@@ -43,14 +43,6 @@ npm install
 tsc --noEmit
 ```
 
-### Note on the typecheck setup
-
-`index.ts` imports `CustomEditor` as a **runtime value** from
-`@earendil-works/pi-coding-agent` (we `extends` it to inherit pi's app
-keybindings). All other types are declared inline (structural) so the file is
-self-contained. Because importing `CustomEditor` pulls pi-coding-agent's `.d.ts`
-(which re-exports files containing subpath imports like
-`@earendil-works/pi-ai/compat` that don't resolve under plain `tsc`), the
 included `tsconfig.json` uses `moduleResolution: "Bundler"` + `skipLibCheck:
 true`. Do not run `tsc --noEmit index.ts` (file argument); use `tsc --noEmit`
 (the tsconfig form).
